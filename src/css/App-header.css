@@ -1,0 +1,29 @@
+body {
+    --primary : #dc8ed7;
+    --secundary : #c97dc5;
+    --tertiary : #b76bb3;
+    --quaternary : #a45aa0;
+    --quinary: #91488e;
+}
+
+.App-header {
+    width: 100%;
+    background-color: var(--secundary);
+    padding: 25px;
+    z-index: 30;
+    box-shadow: 0 5px 10px var(--quinary);
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4.5rem;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+}
+
+.App-header p {
+    text-align: center;
+    font-style: italic;
+    font-size: 25px;
+}

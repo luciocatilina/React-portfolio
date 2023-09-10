@@ -1,0 +1,5 @@
+#App-body {
+    background-color: var(--primary);
+    z-index: 10;
+    width: 100%;
+}

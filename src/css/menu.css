@@ -1,0 +1,49 @@
+.menu {
+    width: 100%;
+    padding-top: 50px;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto 1200px auto;
+    grid-template-areas: 
+    'btn    btn    btn'
+    '.      cont   .';
+}
+
+.menu__container-button {
+    grid-area: btn;
+    margin:auto;
+    width: 240px;
+    display: flex;
+    margin-bottom: 30px;
+    background-color: var(--tertiary);
+    border-radius: 9px;
+}
+
+.menu__container-button__button {
+    width: 120px;
+    font-size: 23px;
+    outline: none;
+    border: none;
+    padding: 13px;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 9px;
+}
+
+.selected {
+    background-color: var(--quinary);
+    transition: background-color 0.3s ease;
+    color: white;
+}
+
+.menu__container-data {
+    grid-area: cont;
+}
+
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    padding-bottom: 30px;
+    letter-spacing: 4px;
+}

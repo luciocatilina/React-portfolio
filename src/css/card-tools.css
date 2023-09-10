@@ -1,0 +1,7 @@
+.tool {
+    background-color: var(--tertiary);
+    padding: 5px;
+    border: 1px solid var(--quinary);
+    border-radius: 13px;
+    margin: 5px;
+}

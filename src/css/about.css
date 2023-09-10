@@ -1,0 +1,7 @@
+.sectionAbout {
+    grid-area: cont;
+    height: 50vh;
+    width: 100%;
+    background-color: red;
+    font-family: 'Libre Baskerville', sans-serif;
+}

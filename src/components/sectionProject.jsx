@@ -1,12 +1,15 @@
 import React from 'react';
 import '../css/project.css';
+import '../css/loader.css';
 import ProjectCard from './project-card';
+
 
 class Project extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             listProjectsApi : [],
+            loading : true,
         }
         this.callApiProjects = this.callApiProjects.bind(this);
     }
@@ -16,7 +19,8 @@ class Project extends React.Component {
         if (this.getLocalStorage('info')) {
 
             this.setState({
-                listProjectsApi : this.getLocalStorage('info')
+                listProjectsApi : this.getLocalStorage('info'),
+                loading : false,
             })
 
         } else {
@@ -24,6 +28,7 @@ class Project extends React.Component {
             this.callApiProjects().then((data) => {
                 this.setState({
                     listProjectsApi: data,
+                    loading : false,
                 });
                 this.apiToLocalStorage('info', data)
             });        
@@ -78,6 +83,20 @@ class Project extends React.Component {
     } 
 
     render() {
+        //const {loading, listProjectsApi} = this.state
+        if (this.state.loading) {
+            return (
+                <div className="sectionProject">
+                    <h2>Loading projects...</h2>
+                    <div className="projects-container">
+                        <div className="loader-container">
+                             <div className="loader"></div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
         const projects = this.state.listProjectsApi.map(project => 
             <ProjectCard obj={project} key={project.name}/>)
         return(

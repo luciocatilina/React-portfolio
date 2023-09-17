@@ -27,8 +27,7 @@ class Menu extends React.Component {
                 <div className='menu__container-button'>
                     <button 
                     onClick={() => this.handleSection(1)}
-                    className={`menu__container-button__button ${this.state.section === 1 ? 'selected' : ''}`.trimEnd()}
->
+                    className={`menu__container-button__button ${this.state.section === 1 ? 'selected' : ''}`.trimEnd()}>
                         Projects
                     </button>
                     <button 

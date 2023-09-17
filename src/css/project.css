@@ -19,11 +19,13 @@
     border-radius: 17px;
     color: black;
     width: 380px;
-    min-height: 350px;
-    margin: 7.5px 0;
+    min-height: 450px;
+    margin: 40px 0;
     display: flex;
     flex-direction: column;
     position: relative;
+    animation-name: fade-in;
+    animation-duration: 1s;
 }
 
 .projects-container__card h6 {
@@ -44,12 +46,28 @@
     text-indent: 10px;
     margin: 0 5px;
     color: black;
+    margin-top: 15px;
+    height: 206.83px;
+    /*
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 17px;
+    */
+}
+
+.projects-container__card__image {
+    margin: 0 5px;
     padding-top: 15px;
+    border-radius: 15px;
+    height: 206.83px;
 }
 
 
 /*CARD TOOLS*/
 .projects-container__card__tool-container {
+    min-height: 101px;
     display: flex;
     padding-top: 17px;
     position: absolute;
@@ -87,3 +105,15 @@
     box-shadow: -5px 5px 10px white;
 }
 
+/*Animations*/
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

@@ -4,4 +4,5 @@
     border: 1px solid var(--quinary);
     border-radius: 13px;
     margin: 5px;
+    box-shadow: -1px 1px 9px 0 #724cb8;
 }

@@ -20,10 +20,38 @@ h1 {
     font-size: 4.5rem;
     font-family: 'Work Sans', sans-serif;
     font-weight: bold;
+    animation-name: fromTop;
+    animation-duration: 1s;
 }
 
 .App-header p {
     text-align: center;
     font-style: italic;
     font-size: 25px;
+    animation-name: fromRight;
+    animation-duration: 1s;
+}
+
+/*Animations*/
+
+@keyframes fromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-80px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;;
+        transform: translateX(0);
+    }
 }

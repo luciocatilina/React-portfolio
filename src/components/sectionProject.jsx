@@ -5,51 +5,84 @@ import ProjectCard from './project-card';
 class Project extends React.Component {
     constructor(props) {
         super(props)
-
+        this.state = {
+            listProjectsApi : [],
+        }
+        this.callApiProjects = this.callApiProjects.bind(this);
     }
 
-    listProjects = [
-        {
-            title : 'JavaScript Cart',
-            description : "It's a JavaScript-based shopping cart. The cart includes a feature that allows users to change the currency using an API.",
-            tools : 'JavaScript, Scss, html, css, django, js ajax, DRF',
-            repository : 'asdasd',
-            host : 'asdasda',
-            date : '20-02-2000',
-        },
-        {
-            title : 'title 2',
-            description : 'aLorasdasdasdasdasdasdasddggconsectetur adipisicing elit. Ac',
-            tools : 'orem ipsum dolor sit',
-            repository : 'asdasdffgsiouiuouasd',
-            host : 'asuiouioudasda',
-            date : '23-02-2020',
-        },
-        {
-            title : 'title 3',
-            description : 'aLorem ibnnvbnnvbnvbnvetur adipisicing elit. Ac',
-            tools : 'orvbnvbnvbnum dolor sit',
-            repository : 'asvnvbnmbdasd',
-            host : 'asmbnmbmdasda',
-            date : '20-02-2010',
-        },
-        {
-            title : 'title 4',
-            description : 'aLozxczxcvzxvzxvzectetur adipisicing elit. Ac',
-            tools : 'orvzxvzvzcxzxczxczxor sit',
-            repository : 'asdasd',
-            host : 'asdasda',
-            date : '20-02-2020',
-        },
-    ]
+    componentDidMount() {
+        
+        if (this.getLocalStorage('info')) {
 
+            this.setState({
+                listProjectsApi : this.getLocalStorage('info')
+            })
+
+        } else {
+
+            this.callApiProjects().then((data) => {
+                this.setState({
+                    listProjectsApi: data,
+                });
+                this.apiToLocalStorage('info', data)
+            });        
+        }
+    }
+
+    //SESION STORAGE
+    apiToLocalStorage = (key, data) => {
+        const jsonData = JSON.stringify(data);
+        sessionStorage.setItem(key, jsonData);
+    }
+    getLocalStorage = (key) => {
+        const jsonData = sessionStorage.getItem(key);
+        const data = jsonData ? JSON.parse(jsonData) : null;
+        return data;
+    }
+
+    //API
+    callApiProjects = async () => {
+        //credentials
+        const username = 'pablo';
+        const password = 'pa2009ca';
+        const credentials = `${username}:${password}`;
+        const base64Credentials = btoa(credentials);
     
+        const apiUrlSmall = "https://pabloapi.pythonanywhere.com/api/small_project/";
+        const apiUrlBig = "https://pabloapi.pythonanywhere.com/api/big_project/";
+        try {
+            const response = await fetch(apiUrlSmall, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Basic ${base64Credentials}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+            const response2 = await fetch(apiUrlBig, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Basic ${base64Credentials}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+            const dataSmall = await response.json();
+            const dataBig = await response2.json();
+            let listaProyectos = (dataBig.concat(dataSmall.reverse()));
+            //let listaProyectos = (dataBig.concat(dataSmall));
+            return listaProyectos;
+        } catch(error) {
+            console.log(error);
+            return []
+        }
+    } 
+
     render() {
-        const projects = this.listProjects.map(project => 
-            <ProjectCard obj={project}/>)
+        const projects = this.state.listProjectsApi.map(project => 
+            <ProjectCard obj={project} key={project.name}/>)
         return(
             <div className="sectionProject">
-                <h2>Projects</h2>
+                <h2>Some of my Projects</h2>
                 <div className="projects-container">
                     {projects}
                 </div>

@@ -1,5 +1,5 @@
 #App-body {
-    background-color: var(--primary);
-    z-index: 10;
+    background-color: #e2b3de;
     width: 100%;
+    min-height: calc(100vh - 163.64px)
 }

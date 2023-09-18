@@ -6,3 +6,11 @@
     margin: 5px;
     box-shadow: -1px 1px 9px 0 #724cb8;
 }
+
+@media screen and (max-width:480px){
+    .tool {
+        padding: 3px;
+        margin: 2px;
+    }
+    
+}

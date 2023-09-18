@@ -48,7 +48,30 @@ h2 {
     padding-bottom: 30px;
     letter-spacing: 4px;
 }
+/*MEDIA QUERIES*/
+@media screen and (max-width:1200px){
+    .menu {
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+    }
+    h2 {
+        font-size: 1.7rem;
+        letter-spacing: 3px;
+    }
+}
 
-@media screen {
-    
+@media screen and (max-width: 480px){
+    .menu {
+        display: flex;
+        flex-direction: column;
+        padding-top: 30px;
+    }
+    .menu__container-button {
+        margin-bottom: 15px;
+    }
+    h2{
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        padding-bottom: 15px;
+    }
 }

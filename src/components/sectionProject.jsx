@@ -15,7 +15,7 @@ class Project extends React.Component {
     }
 
     componentDidMount() {
-        
+
         if (this.getLocalStorage('info')) {
 
             this.setState({
@@ -33,6 +33,7 @@ class Project extends React.Component {
                 this.apiToLocalStorage('info', data)
             });        
         }
+
     }
 
     //SESION STORAGE

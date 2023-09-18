@@ -55,3 +55,12 @@ h1 {
         transform: translateX(0);
     }
 }
+
+@media screen and (max-width:480px){
+    h1 {
+        font-size: 3rem;
+    }
+    .App-header p {
+        font-size: 22px;
+    }
+}

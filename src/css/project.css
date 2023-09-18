@@ -132,6 +132,8 @@
     .projects-container__card__image {
         margin-top: 7px;
         height: 185px;
+        object-fit: cover;
+        padding-top: 0;
     }
     .projects-container__card__tool-container {
         position:static;

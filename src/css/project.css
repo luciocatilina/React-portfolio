@@ -53,7 +53,6 @@
 .projects-container__card__image {
     margin: 0 5px;
     padding-top: 15px;
-    border-radius: 15px;
     height: 206.83px;
 }
 
@@ -95,7 +94,7 @@
 
 .projects-container__card__button-container__button_project:hover {
     color: white;
-    box-shadow: -5px 5px 10px white;
+    box-shadow: 0px 0px 10px white;
 }
 
 /*Animations*/
@@ -134,6 +133,7 @@
         height: 185px;
         object-fit: cover;
         padding-top: 0;
+        border-radius: 15px;
     }
     .projects-container__card__tool-container {
         position:static;
